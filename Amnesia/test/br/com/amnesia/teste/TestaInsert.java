@@ -16,7 +16,6 @@ public class TestaInsert {
         dao.inserir(quadros);
         
         Tarefa tarefas = new Tarefa();
-        tarefas.setQuadro_id(1);
         tarefas.setDescricao("Hello Word");
         tarefas.setStatus("Ativo");
         TarefaDAO tarefadao = new TarefaDAO();

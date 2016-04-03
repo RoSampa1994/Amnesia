@@ -7,7 +7,7 @@ public class Quadro {
 
     private String titulo;
 
-    private String descricao;  
+    private String descricao; 
 
     public int getId() {
         return id;

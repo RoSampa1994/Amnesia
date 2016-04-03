@@ -1,3 +1,10 @@
+.topo{
+  background-color: #337cbb !important;
+}
+.menu a{
+  background-color: #005B90 !important;
+  color: #FFF !important;
+}
 .item{
   background: #005B90;
   color: #FFFFFF;
