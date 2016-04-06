@@ -12,27 +12,27 @@ import javax.servlet.http.HttpSession;
 public class LoginController extends HttpServlet {
     private static final long serialVersionUID = 1L;
     
+    @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) 
                     throws ServletException, IOException {
             processRequest(request, response);
     }
 
-
     private void processRequest(HttpServletRequest req,
         HttpServletResponse resp) throws ServletException, IOException {
         validaDadosRecebidos(req);
-        RequestDispatcher rd = req.getRequestDispatcher("quadro.html");
+        RequestDispatcher rd = req.getRequestDispatcher("/quadro.jsp");
         rd.forward(req, resp);
     }
 
 
     private void validaDadosRecebidos(HttpServletRequest req) throws ServletException {
         String nomeUsuario = req.getParameter("txtlogin");
-        String nomeSenha = req.getParameter("txtSenha");
-         if(!nomeUsuario.trim().equals("rodrigo") || !nomeSenha.trim().equals("123"))
-            throw new ServletException("Login ou Senha Inválida");
-        HttpSession session = req.getSession();
-        session.setAttribute("usuarioautenticado", nomeUsuario);
+        String nomeSenha = req.getParameter("txtsenha");
+         if(!nomeUsuario.equals("rodrigo") || !nomeSenha.equals("123"))
+            throw new InvalidUserException("Login ou Senha Inválida");
+        HttpSession session = req.getSession(true);
+        session.setAttribute("usuarioautenticado", nomeUsuario);         
   	}
 
 }
