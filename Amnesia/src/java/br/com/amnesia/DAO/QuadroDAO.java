@@ -31,12 +31,12 @@ public class QuadroDAO{
         stmt.close();        
     }
 
-    public void excluir(Quadro quadro) throws SQLException {
-        String sql = "delete from empresas WHERE id = ?";
+    public void excluir(String quadro) throws SQLException {
+        String sql = "delete from quadros WHERE id = ?";
         // prepared statement para inserção
         PreparedStatement stmt = conexao.prepareStatement(sql);
         // seta os valores
-        stmt.setInt(1,quadro.getId());
+        stmt.setString(1,quadro);
         // executa
         stmt.execute();
         stmt.close();
@@ -70,11 +70,11 @@ public class QuadroDAO{
     }    
     
         // empresas: array armazena a lista de registros
-    public List<Quadro> lista() throws SQLException{
+    public List<Quadro> lista(String login_id) throws SQLException{
        List<Quadro> quadros = new ArrayList<Quadro>();
 
-       PreparedStatement stmt = this.conexao.prepareStatement("select * from empresas");
-
+       PreparedStatement stmt = this.conexao.prepareStatement("select * from quadros where login_id = ?");
+       stmt.setString(1, login_id); 
        ResultSet rs = stmt.executeQuery();
 
        while (rs.next()) {      

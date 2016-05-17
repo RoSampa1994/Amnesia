@@ -3,7 +3,7 @@ package br.com.amnesia.modelo;
 public class Quadro {
     private int id;
 
-    private Login login;
+    private String login;
 
     private String titulo;
 
@@ -17,11 +17,11 @@ public class Quadro {
         this.id = id;
     }
 
-    public Login getLogin() {
+    public String getLogin() {
         return login;
     }
 
-    public void setLogin(Login login) {
+    public void setLogin(String login) {
         this.login = login;
     }
 

@@ -5,20 +5,37 @@
  */
 package br.com.amnesia.DAO;
 
+import br.com.amnesia.modelo.Login;
+import java.sql.PreparedStatement;
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
 /**
  *
  * @author Cliente
  */
 public class LoginDAO {
-    public int cadastrar(String login, String senha, String email) {
-            return 0;
-    }
+    private Connection conexao; 
 
-    public boolean logar(String login, String senha) {
-            return false;
-    }
-
-    public boolean recuperarsenha(String email) {
-            return false;
+    public LoginDAO() throws SQLException, ClassNotFoundException{
+        this.conexao = new br.com.amnesia.conexao.Conexao().getConnection();
     }    
+    
+    public Login GetSingleLogin(String login) throws SQLException {
+        PreparedStatement stmt = this.conexao.prepareStatement(
+            "select * from logins where login = ?");    
+        Login usuario = new Login();
+        stmt.setString(1, login);  
+        ResultSet rs = stmt.executeQuery();
+        if (rs.next()) {
+            usuario.setId(rs.getInt("id"));
+            usuario.setSenha(rs.getString("senha"));
+            usuario.setEmail(rs.getString("email"));
+            usuario.setLogin(rs.getString("login"));
+        }
+        rs.close();
+        stmt.close();
+        return usuario;
+    }   
 }
