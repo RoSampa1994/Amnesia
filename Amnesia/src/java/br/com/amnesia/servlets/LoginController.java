@@ -32,6 +32,7 @@ public class LoginController extends HttpServlet {
     private void processRequest(HttpServletRequest req,
         HttpServletResponse resp) throws ServletException, IOException, SQLException, ClassNotFoundException {
         validaDadosRecebidos(req);
+        
         RequestDispatcher rd = req.getRequestDispatcher("/quadro.jsp");
         rd.forward(req, resp);
     }

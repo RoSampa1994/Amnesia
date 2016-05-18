@@ -1,8 +1,10 @@
-<!DOCTYPE html>
+<%@page import="br.com.amnesia.servlets.InvalidUserException"%>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
 <html>
     <head>
 <meta http-equiv="content-type" content="text/html; charset=UTF-8">
-    <title>Champions Fast</title>
+    <title>Amnesia</title>
     <link rel="stylesheet" media="all" href="arquivos/bootstrap.css" data-turbolinks-track="true">
 <link rel="stylesheet" media="all" href="arquivos/estilo.css" data-turbolinks-track="true">
 <link rel="stylesheet" media="all" href="arquivos/restaurantes.css" data-turbolinks-track="true">
@@ -17,11 +19,11 @@
       var txtlogin = document.getElementById("campos_login");
       var txtsenha = document.getElementById("campos_senha");
 	if(txtlogin.value == ""){
-		alert("Campo Usu√°rio N√£o Informado");  
+		alert("Campo usu·rio n„o Informado");  
 		return false;
 	} 
 	if(txtsenha.value == ""){ 
-		alert("Campo Senha N√£o Informado");
+		alert("Campo Senha n„o Informado");
 		return false;
 	} 
 	document.formLogin.submit();
@@ -33,8 +35,9 @@
     <form name="formLogin" action="LoginController" method="post">
         <div class="container">
           <div class="bloco-login col-md-4 text-center">
+            <h3 class="logininvalido"> </h3>
             <h3>LOGIN</h3>
-              <input name="txtlogin" id="campos_login" placeholder="USU√ÅRIO" class="col-md-9 col-sm-12 col-xs-12" type="text">
+              <input name="txtlogin" id="campos_login" placeholder="USU¡RIO" class="col-md-9 col-sm-12 col-xs-12" type="text">
               <input name="txtsenha" id="campos_senha" placeholder="SENHA" class="col-md-9 col-sm-12 col-xs-12" type="password">
               <input name="commit" value="ENTRAR" class="submit col-md-4 col-sm-12 col-xs-12" type="button" onclick="validarLogin()">
           </div>

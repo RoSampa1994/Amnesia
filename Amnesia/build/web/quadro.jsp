@@ -45,7 +45,7 @@
             </div>
             <div class="collapse navbar-collapse" id="navbar-ex-collapse">
               <ul class="nav navbar-nav navbar-right">
-                <li class="menu active"><a href="#">Home<br></a></li>
+                <li class="menu active"><a href="SessaoRemover.jsp">Sair<br></a></li>
               </ul>
             </div>
           </div>

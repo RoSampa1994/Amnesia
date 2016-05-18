@@ -10,7 +10,7 @@ public class Conexao {
             Class.forName("com.mysql.jdbc.Driver");
             String url ="jdbc:mysql://localhost:3306/amnesia_production";
             String usuario = "root";
-            String senha = "123";
+            String senha = "minhasenha";
             return DriverManager.getConnection(url,usuario,senha);
         } catch (SQLException e) {
             throw new RuntimeException(e);
