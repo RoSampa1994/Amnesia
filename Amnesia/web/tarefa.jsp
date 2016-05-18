@@ -15,12 +15,6 @@
     <link href="arquivos/font-awesome.min.css" rel="stylesheet" type="text/css">
     <link href="arquivos/estilo.css" rel="stylesheet" type="text/css">
     <link href="arquivos/bootstrap.css" rel="stylesheet" type="text/css">
-        <script type="text/javascript">
-            function excluir(id){
-              Integer quadro_id = id;
-              document.formQuadro.submit();
-            }
-        </script>
   </head>
   <body>
     <form name="formQuadro" action="QuadroController" method="post">

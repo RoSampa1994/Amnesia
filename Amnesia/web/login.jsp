@@ -41,6 +41,7 @@
               <input name="txtlogin" id="campos_login" placeholder="USUÁRIO" class="col-md-9 col-sm-12 col-xs-12" type="text">
               <input name="txtsenha" id="campos_senha" placeholder="SENHA" class="col-md-9 col-sm-12 col-xs-12" type="password">
               <input name="commit" value="ENTRAR" class="submit col-md-4 col-sm-12 col-xs-12" type="button" onclick="validarLogin()">
+              <input name="commit" value="CADASTRAR" class="submit col-md-4 col-sm-12 col-xs-12" type="button" href="logincadastrar.jsp">
           </div>
         </div>
     </form>

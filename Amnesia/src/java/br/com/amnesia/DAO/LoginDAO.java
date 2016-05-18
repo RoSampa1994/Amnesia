@@ -37,5 +37,21 @@ public class LoginDAO {
         rs.close();
         stmt.close();
         return usuario;
-    }   
+    } 
+    
+    public void inserir(Login login) throws SQLException {
+        String sql = "insert into logins(login, senha, email) values (?,?,?)";
+    
+        // prepared statement para inserção
+        PreparedStatement stmt = conexao.prepareStatement(sql);
+
+        // seta os valores
+        stmt.setString(1,login.getLogin());
+        stmt.setString(2,login.getSenha());
+        stmt.setString(3,login.getEmail());
+        // executa
+        stmt.execute();
+        stmt.close();        
+    }    
+    
 }

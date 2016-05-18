@@ -38,7 +38,6 @@ public class QuadroController extends HttpServlet {
     private void validaDadosRecebidos(HttpServletRequest req) throws ServletException, SQLException, ClassNotFoundException{
         String quadro_id = req.getParameter("id");
         QuadroDAO quadro = new QuadroDAO();
-        quadro.excluir(quadro_id);
   	}
 
 }
