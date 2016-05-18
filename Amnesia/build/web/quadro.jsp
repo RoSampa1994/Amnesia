@@ -56,7 +56,8 @@
                     <% for (Quadro Quadro : listaquadro) { %> 
                         <div class="item col-md-3">
                             <div class="camada-transparente">
-                                <a href="#" onclick="excluir(<%=Quadro.getId()%>);">excluir</a>
+                                <a href="tarefa.jsp?ID=<%=Quadro.getId()%>">Abrir</a>
+                                <a href="quadroexcluir.jsp?ID=<%=Quadro.getId()%>">excluir</a>
                                 <a href="#">editar</a>
                             </div>
                             <h2> <%=Quadro.getTitulo()%></h2>

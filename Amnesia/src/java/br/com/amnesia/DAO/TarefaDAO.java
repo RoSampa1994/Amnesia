@@ -31,31 +31,31 @@ public class TarefaDAO {
 
 	}
 
-	public void excluir(Tarefa tarefa)  throws SQLException {
+	public void excluir(String tarefa)  throws SQLException {
             String sql = "delete from tarefas WHERE id = ?";
             // prepared statement para inserção
             PreparedStatement stmt = conexao.prepareStatement(sql);
             // seta os valores
-            stmt.setInt(1,tarefa.getId());
+            stmt.setString(1, tarefa);
             // executa
             stmt.execute();
             stmt.close();
             conexao.close();
 	}
 
-    public List<Tarefa> lista() throws SQLException{
+    public List<Tarefa> lista(String quadro_id) throws SQLException{
        List<Tarefa> tarefas = new ArrayList<Tarefa>();
 
-       PreparedStatement stmt = this.conexao.prepareStatement("select * from empresas");
-
+       PreparedStatement stmt = this.conexao.prepareStatement("select * from tarefas where quadro_id = ?");
+       stmt.setString(1, quadro_id); 
        ResultSet rs = stmt.executeQuery();
 
        while (rs.next()) {
-           // criando o objeto Empresa
+           // criando o objeto Tarefa
            Tarefa tarefa = new Tarefa();
            tarefa.setId(rs.getInt("id"));
            tarefa.setDescricao(rs.getString("descricao"));
-           // adiciona o empresa à lista de empresas
+           // adiciona a tarefa à lista de tarefa
            tarefas.add(tarefa);
        }
        rs.close();
